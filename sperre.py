@@ -78,7 +78,7 @@ class Sperre:
                         config.relaying_to.pop(num)
             get_nodes_count.send()
             if not config.found_convo:
-                find_convo.send()
+                thread.start_new_thread(find_convo.send, ())
             time.sleep(5)
 
 if __name__ == "__main__":

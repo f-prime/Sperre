@@ -9,4 +9,7 @@ Relaying
 ========
 
 
-If you would like to be a relay node on the Sperre network open port 7070 then open config.py and change relay = False to relay = True
+If you would like to be a relay node on the Sperre network open port 7070 then open config.py and change 
+    relay = False 
+to 
+    relay = True

@@ -37,7 +37,7 @@ def send(command, output_wanted, output_as_array=False):
                     output += data
                 return output
             
-            if output_as_array:
+            if output_as_array: # This was used when I had a different idea for the way the protocol would work. I have since moved away from that idea but kept it here because it may prove useful in the future for some reason.
                 output_ = ""
                 while True:
                     data = sock.recv(1024)

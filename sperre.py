@@ -42,6 +42,21 @@ def send_message_form(address):
         thread.start_new_thread(send_message.send, (message_,  address))
         redirect("/conversation/"+address)
 
+
+@route("/startconvo/")
+def start_convo():
+    return jinja2_template("templates/start_convo.html")
+
+@route("/startconvo/", method="POST")
+def start_convo_form():
+    address = request.form.get("address")
+    check = config.nodes.find("nodes", {"address":address})
+    if not check:
+        return "Address does not exist."
+    else:
+        redirect("/conversation/"+address)
+
+
 if __name__ == "__main__":
     thread.start_new_thread(client.run, ())
     run(host="localhost", port="4321", debug=True)

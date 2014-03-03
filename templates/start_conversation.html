@@ -14,13 +14,10 @@
                 Your Address: {{ my_address}}
             </span>
         </div>
-        <div class="messages">
-            <hr/>
-            {% for x in messages %}
-            <a href="/conversation/{{ x['from'] }}"><h3>{{ x['from'] }}</h3></a>
-                {{ x['message'] }}
-                <hr/>
-            {% endfor %} 
+        <div class="form">
+            <form method = "POST">
+                <input type="text" name="address" placeholder="Address"/>
+                <input type="submit" value="Submit"/>
         </div>
     </body>
 </html>

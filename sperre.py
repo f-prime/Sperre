@@ -25,6 +25,11 @@ def index():
 @route("/conversation/<address>")
 def conversation(address):
     my_address = config.my_data.find("data", "all")[0]["address"]
+    return jinja2_template("templates/conversation.html", my_address=my_address, contact=address)
+
+
+@route("/messages/<address>")
+def messages__(address):
     messages = config.cache.find("messages", {"from":address})
     if not messages:
         messages = []
@@ -33,7 +38,9 @@ def conversation(address):
         sent = []
     conversation = messages + sent
     conversation = sorted(conversation, key=lambda x:x['time'])
-    return jinja2_template("templates/conversation.html", my_address=my_address, messages=conversation)
+    return jinja2_template("templates/messages.html",  messages=conversation)
+
+
 
 @route("/conversation/<address>", method="POST")
 def send_message_form(address):
@@ -45,17 +52,21 @@ def send_message_form(address):
 
 @route("/startconvo/")
 def start_convo():
-    return jinja2_template("templates/start_convo.html")
+    my_address = config.my_data.find("data", "all")[0]["address"]
+    return jinja2_template("templates/start_convo.html", my_address=my_address)
 
 @route("/startconvo/", method="POST")
 def start_convo_form():
-    address = request.form.get("address")
+    address = request.forms.get("address")
     check = config.nodes.find("nodes", {"address":address})
     if not check:
         return "Address does not exist."
     else:
         redirect("/conversation/"+address)
 
+@route("/static/<static_file>")
+def static_(static_file):
+    return template("templates/"+static_file)
 
 if __name__ == "__main__":
     thread.start_new_thread(client.run, ())

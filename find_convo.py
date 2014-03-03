@@ -36,7 +36,8 @@ def send():
                 from_ = x['from']
                 message = base64.b64decode(x['message'])
                 message = aes.decryptData(decrypt(base64.b64decode(x['key']), privatekey), message)
-                print message
+                config.cache.insert("messages", {"from":from_, "message":message, "time":x['time']}) #So that the web ui can then access them
+                config.cache.save()
                 
 def find_node():
     nodes = config.nodes.find("nodes", {"relay":True})

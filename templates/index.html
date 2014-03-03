@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <style>
+        </style>
+        <title>Sperre Web UI</title>
+    </head>
+    <body>
+        <div class="header">
+            <a href="/">Home</a>
+        </div>
+        <div class="messages">
+            <hr/>
+            {% for x in messages %}
+            <a href="/conversation/{{ x['from'] }}"><h3>{{ x['from'] }}</h3></a>
+                {{ x['message'] }}
+                <hr/>
+            {% endfor %} 
+        </div>
+    </body>
+</html>

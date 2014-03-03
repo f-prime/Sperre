@@ -22,7 +22,7 @@ a:hover {
 
 a {
     text-decoration: none;
-    color: #EDEEEE;    
+    color: #25A5C8;    
 }
 
 
@@ -30,7 +30,7 @@ a {
     padding-top: 5px;
     width: 100%;
     color: #EDEEEE;
-    
+    word-wrap: break-word;
 }
 
 
@@ -72,7 +72,7 @@ hr {
 
 #message_form{
    position: absolute; 
-   top: 60%; 
+   top: 62%; 
    left: 16.17%;
     width: 67.29%;
     border: none;

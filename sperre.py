@@ -6,6 +6,7 @@ import client
 
 @route("/")
 def index():
+    my_address = config.my_data.find("data", "all")[0]["address"]
     messages = config.cache.find("messages", "all")
     if not messages:
         messages = []
@@ -19,10 +20,11 @@ def index():
             data['message'] = x['message']
             out.append(data)
     
-    return jinja2_template("templates/index.html", messages=out)
+    return jinja2_template("templates/index.html", messages=out, my_address=my_address)
 
 @route("/conversation/<address>")
 def conversation(address):
+    my_address = config.my_data.find("data", "all")[0]["address"]
     messages = config.cache.find("messages", {"from":address})
     if not messages:
         messages = []
@@ -31,7 +33,7 @@ def conversation(address):
         sent = []
     conversation = messages + sent
     conversation = sorted(conversation, key=lambda x:x['time'])
-    return jinja2_template("templates/conversation.html", messages=conversation)
+    return jinja2_template("templates/conversation.html", my_address=my_address, messages=conversation)
 
 @route("/conversation/<address>", method="POST")
 def send_message_form(address):

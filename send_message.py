@@ -11,7 +11,11 @@ import time
 def send_message(obj, data):
     for x in config.relaying_to:
         if x['address'] == data['contact']:
-            x['object'].send(json.dumps({"message":data['message'], "from":data['address'], "key":data['key'], "time":data['time']}))
+            try:
+                x['object'].send(json.dumps({"message":data['message'], "from":data['address'], "key":data['key'], "time":data['time']}))
+            except:
+                x['object'].close()
+                config.relaying_to.remove(x)
 
 def send(message, contact):
     data = config.my_data.find("data", "all")[0]

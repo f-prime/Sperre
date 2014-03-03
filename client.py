@@ -57,6 +57,7 @@ class Sperre:
             try:
                 data = json.loads(data) #Data is transfered in the JSON format, if it isn't JSON we will not continue trying to parse it.
             except:
+                obj.close()
                 return
             else:
                 if "cmd" in data:

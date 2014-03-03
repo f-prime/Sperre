@@ -11,6 +11,8 @@ def find_convo(obj, data):
     config.relaying_to.append({"address":data['address'], "object":obj})
 
 def send():
+    if config.found_convo: #This is here because we don't want another thread to check again if a relay node was found already.
+        return
     address = config.my_data.find("data", "all")[0]['address']
     privatekey = config.my_data.find("data", "all")[0]["privatekey"]
     privatekey = filter(None, re.findall("[0-9]*", privatekey))

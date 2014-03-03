@@ -12,6 +12,7 @@ def index():
         messages = []
     names = []
     out = []
+    messages.reverse()
     for x in messages:
         if x['from'] not in names:
             names.append(x['from'])

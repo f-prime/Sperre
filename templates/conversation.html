@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <style>
+        </style>
+        <title>Sperre Web UI</title>
+    </head>
+    <body>
+        <div class="header">
+            <a href="/">Home</a>
+        </div>
+        <div class="messages">
+            <span id="messages">
+            {% for x in messages %}
+                {% if "from" not in x %}   
+                <font color="green"><strong>{{ x['contact'] }}:</strong></font> {{ x['message'] }}<br/>
+                {% else %}
+                <font color="red"><strong>{{ x['from'] }}:</strong></font> {{ x['message'] }} <br/>        
+                {% endif %}              
+            {% endfor %} 
+        </span>
+        <span id="send_message">
+            <form method="POST">
+                <input type="text" placeholder="Message" name="message"/>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>
+
+    </body>
+</html>

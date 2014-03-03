@@ -1,26 +1,28 @@
 <html>
     <head>
-        <style>
-        </style>
+        <link rel="stylesheet" type="text/css" href="/static/style.css"/>
         <title>Sperre Web UI</title>
     </head>
     <body>
         <div class="header">
             <span id="links">
-                <a href="/">Home</a>
+                <a href="/">Home |</a>
                 <a href="/startconvo/">Start Conversation</a>
             </span>
             <span id="address">
-                Your Address: {{ my_address}}
+                {{ my_address}}
             </span>
         </div>
+        
         <div class="messages">
-            <hr/>
+            <div id="messages">
+                <hr/>
+                {% if not messages %} You don't have any conversations started {% endif %}
             {% for x in messages %}
             <a href="/conversation/{{ x['from'] }}"><h3>{{ x['from'] }}</h3></a>
-                {{ x['message'] }}
-                <hr/>
-            {% endfor %} 
+            {{ x['message'] }}
+            <br/><br/><hr/>
+                    {% endfor %}
         </div>
     </body>
 </html>

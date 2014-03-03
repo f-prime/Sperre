@@ -1,35 +1,55 @@
 <html>
     <head>
-        <style>
-        </style>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+         <link rel="stylesheet" type="text/css" href="/static/style.css"/> 
         <title>Sperre Web UI</title>
     </head>
     <body>
         <div class="header">
             <span id="links">
-                <a href="/">Home</a>
+                <a href="/">Home |</a>
                 <a href="/startconvo/">Start Conversation</a>
             </span>
             <span id="address">
-                Your Address: {{ my_address }}
+                {{ my_address }}
             </span>    
         </div>
-        <div class="messages">
+        <hr/>
+        <div class="messages-convo" id="messages-convo">
             <span id="messages">
-            {% for x in messages %}
-                {% if "from" not in x %}   
-                <font color="green"><strong>{{ x['contact'] }}:</strong></font> {{ x['message'] }}<br/>
-                {% else %}
-                <font color="red"><strong>{{ x['from'] }}:</strong></font> {{ x['message'] }} <br/>        
-                {% endif %}              
-            {% endfor %} 
+                 
         </span>
+    </div>
         <span id="send_message">
             <form method="POST">
-                <input type="text" placeholder="Message" name="message"/>
-                <input type="submit" value="Submit"/>
+                <br/><br/>
+                <input type="text" placeholder="Message" id="message_form" name="message"/>
+                <button type="submit"></button>
             </form>
-        </div>
+        </span>
+        
+        <script>
+        $(function() {
 
+              var height = $('#messages-convo')[0].scrollHeight;
+
+                  $('#messages-convo').animate({'scrollTop': height }, 1);
+
+              });
+            $("#messages").load("/messages/{{contact}}");
+            setInterval(function () {
+                $(function() {
+
+                      var height = $('#scroll')[0].scrollHeight;
+
+                        console.log(height);
+
+                          $('#scroll').animate({'scrollTop': height });
+
+                      });
+                $("#messages").load("/messages/{{contact}}");
+                }, 1000);    
+        </script>
+    </script>
     </body>
 </html>

@@ -1,20 +1,20 @@
 <html>
     <head>
-        <style>
-        </style>
+         <link rel="stylesheet" type="text/css" href="/static/style.css"/> 
         <title>Sperre Web UI</title>
     </head>
     <body>
         <div class="header">
             <span id="links">
-                <a href="/">Home</a>
+                <a href="/">Home |</a>
                 <a href="/startconvo/">Start Conversation</a>
             </span>
             <span id="address">
-                Your Address: {{ my_address}}
+                {{ my_address}}
             </span>
         </div>
         <div class="form">
+            <h2>Enter the address of the person you want to contact</h2>
             <form method = "POST">
                 <input type="text" name="address" placeholder="Address"/>
                 <input type="submit" value="Submit"/>

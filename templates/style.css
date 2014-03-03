@@ -1,0 +1,100 @@
+html {
+
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background-color: #23262B;
+    color:#EDEEEE;
+}
+
+#links a {
+    color: #25A5C8;
+    font-weight: 100px;
+}
+
+
+a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+a {
+    text-decoration: none;
+    color: #EDEEEE;    
+}
+
+
+.messages {
+    padding-top: 5px;
+    width: 100%;
+    color: #EDEEEE;
+    
+}
+
+
+hr {
+
+    border: 0;
+    background-color: #383C41;
+    height: 1px;
+
+}
+
+#address {
+
+    position: absolute;
+    right: 5%;
+
+}
+
+.messages-convo #messages {
+
+    word-wrap: break-word;
+
+}
+
+.messages-convo {
+
+    position: absolute;
+    left: 15%;
+    top: 15%;
+    width: 65%;
+    background-color: white;
+    color:#23262B;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    height: 40%;
+    overflow: auto;
+}
+
+#message_form{
+   position: absolute; 
+   top: 60%; 
+   left: 16.17%;
+    width: 67.29%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    text-wrap
+}
+
+
+button {
+
+    border:none;
+    background-color: #23262B;
+}
+
+
+.form {
+
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    text-align: center;
+
+
+}

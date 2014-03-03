@@ -1,0 +1,7 @@
+            {% for x in messages %}
+                {% if "from" not in x %}   
+                <font color="green"><strong>{{ x['contact'] }}:</strong></font> {{ x['message'] }}<br/>
+                {% else %}
+                <font color="red"><strong>{{ x['from'] }}:</strong></font> {{ x['message'] }} <br/>        
+                {% endif %}              
+            {% endfor %} 

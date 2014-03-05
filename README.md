@@ -5,6 +5,14 @@ About
 Sperre is a p2p instant messaging protocol for safe and secure instant messaging.
 
 
+Getting Started
+===============
+
+You will need Jinja2 in order to use the Web UI so be sure to install that. After you have that installed:
+
+1. run sperre.py
+2. Go to http://localhost:4321 in your browser
+
 Relaying
 ========
 

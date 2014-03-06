@@ -1,6 +1,7 @@
 #This is the file that will have all the config files such as where to find nodes and all the database connections
 import landerdb
 
+version = 0.1.0
 my_data = landerdb.Connect("data.db")
 nodes = landerdb.Connect("nodes.db")
 cache = landerdb.Connect("cache.db") # This is the local data such as messages that aren't held on the network itself.

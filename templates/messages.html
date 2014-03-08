@@ -1,7 +1,7 @@
             {% for x in messages %}
                 {% if "from" not in x %}   
-                <font color="green"><strong>You: </strong></font> {{ x['message'] }}<br/>
+                <font color="green"><strong>You: </strong></font> {{ x['message'] | e }}<br/>
                 {% else %}
-                <font color="red"><strong>Friend: </strong></font> {{ x['message'] }} <br/>        
+                <font color="red"><strong>Friend: </strong></font> {{ x['message'] | e}} <br/>        
                 {% endif %}              
             {% endfor %} 

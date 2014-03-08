@@ -10,7 +10,7 @@
                 <a href="/startconvo/">Start Conversation</a>
             </span>
             <span id="address">
-                {{ my_address}}
+                {{ my_address | e}}
             </span>
         </div>
         
@@ -19,8 +19,8 @@
                 <hr/>
                 {% if not messages %} You don't have any conversations started {% endif %}
             {% for x in messages %}
-            <a href="/conversation/{{ x['from'] }}"><h3>{{ x['from'] }}</h3></a>
-            {{ x['message'] }}
+            <a href="/conversation/{{ x['from'] | e}}"><h3>{{ x['from'] | e}}</h3></a>
+            {{ x['message'] | e }}
             <br/><br/><hr/>
                     {% endfor %}
         </div>

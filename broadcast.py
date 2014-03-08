@@ -43,7 +43,7 @@ def send(command, output_wanted, output_as_array=False):
                     data = sock.recv(1024)
                     if not data:
                         sock.close()
-                        if output:
+                        if output_:
                             output.append({"ip":ip, "port":port, "response":output_})
                         break
                     output_ += data

@@ -19,6 +19,7 @@ class Sperre:
                 "register":register.register,
                 "send_message":send_message.send_message,
                 "find_convo":find_convo.find_convo,
+                "is_online":is_online.is_online,
 
         } #This is where all the protocol commands will be held, they all point to some function that will process them.
 

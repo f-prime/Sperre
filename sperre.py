@@ -3,6 +3,7 @@ import config
 import send_message
 import thread
 import client
+import is_online
 
 @route("/")
 def index():
@@ -28,6 +29,14 @@ def conversation(address):
     my_address = config.my_data.find("data", "all")[0]["address"]
     return jinja2_template("templates/conversation.html", my_address=my_address, contact=address)
 
+
+@route("/is_online/<address>")
+def isonline(address):
+    check = is_online.send(address)
+    if check:
+        return "Online"
+    else:
+        return "Offline"
 
 @route("/messages/<address>")
 def messages__(address):

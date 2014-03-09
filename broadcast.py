@@ -16,8 +16,7 @@ def send(command, output_wanted, output_as_array=False):
             continue
         
         ip = node["ip"]
-        port = node["port"]
-        
+        port = node["port"] 
         sock = socket.socket()
         try:
             sock.settimeout(60)

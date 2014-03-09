@@ -4,6 +4,8 @@ import send_message
 import thread
 import cmd
 import is_online
+import timeago
+import time
 
 class SperreShell(cmd.Cmd):
     prompt = "SperreShell> "
@@ -37,7 +39,8 @@ class SperreShell(cmd.Cmd):
         for x in messages:
             if x['from'] not in names:
                 names.append(x['from'])
-                print x['from']+" "+x['message']
+                timeago_ = timeago.timeago(int(time.time() - x['time']))
+                print x['from']+" "+x['message'] + " " + str(timeago_['value']) +" "+str(timeago_['type'])+" ago"
     
     def do_sendmessage(self, line):
         line = line.split()

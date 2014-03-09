@@ -16,6 +16,7 @@
         </div>
         <hr/>
         <div class="messages-convo" id="messages-convo">
+            <span id="online"></span>
             <span id="messages">
                  
         </span>
@@ -29,14 +30,24 @@
         </span>
         
         <script>
+
             var scr = $('#messages-convo')[0].scrollHeight+1000000;
             $('#messages-convo').animate({scrollTop: scr},100);
             $("#messages").load("/messages/{{contact}}");
+            //$("#online").load("/is_online/{{contact}}");
+            //setInterval(function() {
+              //  $("#online").load("/is_online/{{ contact }}");
+
+
+            //}, 60000);
+            
             setInterval(function () {
                 var scr = $('#messages-convo')[0].scrollHeight+1000000;
                 $('#messages-convo').animate({scrollTop: scr},100);
                 $("#messages").load("/messages/{{contact}}");
                 }, 1000);    
+            
+        
         </script>
     </script>
     </body>

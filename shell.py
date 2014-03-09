@@ -59,9 +59,9 @@ class SperreShell(cmd.Cmd):
         conversation = sorted(conversation, key=lambda x:x['time'])
         for x in conversation:
             if "from" in x:
-                print "You: "+x['message']
-            else:
                 print "Friend: "+x['message']
+            else:
+                print "You: "+x['message']
 
 
 if __name__ == "__main__":

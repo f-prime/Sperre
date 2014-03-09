@@ -10,6 +10,7 @@ import time
 import rsa
 import uuid
 import config
+import is_online
 
 class Sperre:
     def __init__(self):

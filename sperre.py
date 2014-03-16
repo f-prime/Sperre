@@ -4,6 +4,7 @@ import send_message
 import thread
 import client
 import is_online
+import webbrowser
 
 @route("/")
 def index():
@@ -80,4 +81,5 @@ def static_(static_file):
 
 if __name__ == "__main__":
     thread.start_new_thread(client.run, ())
+    webbrowser.open("http://127.0.0.1:4321")
     run(host="localhost", port="4321", debug=True)
